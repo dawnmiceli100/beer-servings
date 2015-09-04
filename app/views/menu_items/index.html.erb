@@ -20,12 +20,12 @@
         <td><%= item.beer.name %></td>
         <td><%= item.beer.abv %></td>
         <td>
-          <span><%= item.servings.first.size %>/</span>
-          <span>$<%= item.servings.first.price %></span>
+          <span><%= item.servings.find_by(size: "12oz. Draft").size %>/</span>
+          <span>$<%= item.servings.find_by(size: "12oz. Draft").price %></span>
         </td>
         <td>
-          <span><%= item.servings.last.size %>/</span>
-          <span>$<%= item.servings.last.price %></span>
+          <span><%= item.servings.find_by(size: "16oz. Draft").size %>/</span>
+          <span>$<%= item.servings.find_by(size: "16oz. Draft").price %></span>
         </td>
         <td><%= link_to "change", edit_menu_item_path(item), class: "btn btn-small btn-success"%></td>
       </tr>

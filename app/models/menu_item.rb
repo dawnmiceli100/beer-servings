@@ -5,7 +5,7 @@ class MenuItem < ActiveRecord::Base
   accepts_nested_attributes_for :servings
 
   def servings_for_form
-    collection = servings.where(menu_item_id: id)
+    collection = servings.where(menu_item_id: id).order(size: :asc)
     collection.any? ? collection : servings.build
   end
 end
